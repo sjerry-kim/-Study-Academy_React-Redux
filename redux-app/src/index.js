@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux"
 // store를 만들기위한 createStore 추가 : redux
 import { createStore } from 'redux';
-// store에 추가할 couner state와 action
+// store에 추가할 counter state와 action
 import counter from './modules/counter';
 // rootReducer를 통해 한번에 묶어서 사용 가능 -> 접근 방식이 조금 바뀌게 됨
 import rootReducer from './modules';
