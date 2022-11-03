@@ -1,6 +1,7 @@
 import './App.css';
 import CounterBox from './components/ConterBox';
 import Memo from './components/Memo';
+import News from './components/News';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <CounterBox />
       <Memo />
+      <News />
     </div>
   );
 }
