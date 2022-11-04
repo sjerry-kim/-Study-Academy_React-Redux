@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { increment, incrementByAmount } from "../modules/counter";
+import { increment, incrementAsync, incrementByAmount } from "../modules/counter";
 
 const Count = () => {
   const count = useSelector((state)=>state.counter.value)
@@ -14,6 +14,7 @@ const Count = () => {
         dispatch(incrementByAmount(11))}}>
           click
       </button>
+      <button onClick={()=>{dispatch(incrementAsync())}}>+1</button>
     </div>
   );
 }

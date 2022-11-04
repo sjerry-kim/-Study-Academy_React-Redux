@@ -11,15 +11,21 @@ import { createStore, applyMiddleware } from 'redux';
 // store에 추가할 counter state와 action
 import counter from './modules/counter';
 // rootReducer를 통해 한번에 묶어서 사용 가능 -> 접근 방식이 조금 바뀌게 됨
-import rootReducer from './modules';
+import rootReducer, { rootSaga } from './modules';
 
 // 미들웨어를 작성 및 설치 후 추가
 //import loggerMiddleware from './lib/loggerMiddleware';
 import logger from 'redux-logger'
 import thunk from 'redux-thunk';
+// saga는 미들웨어를 생성해서 연결을 해주어야 함
+import createSagaMiddleware from 'redux-saga';
+
+// saga 미들웨어 생성
+const sagaMiddleware = createSagaMiddleware();
 
 //createStore를 이용하여 store 생성
-const store = createStore(rootReducer, applyMiddleware(logger, thunk))
+const store = createStore(rootReducer, applyMiddleware(logger, thunk, sagaMiddleware))
+sagaMiddleware.run(rootSaga);// 미들웨어를 추가한 후 실행
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

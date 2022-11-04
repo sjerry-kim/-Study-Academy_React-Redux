@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { change, decreaseAsync, increase, increaseAsync } from "../modules/counter";
+import { change, decreaseAsync, decreaseSagaAsync, increase, increaseAsync, increaseSagaAsync } from "../modules/counter";
 
 const CounterBox = () => {
   // useSelector를 통해서 state의 원하는 값을 가져올 수 있음
@@ -41,6 +41,11 @@ const CounterBox = () => {
       <button onClick={()=>{dispatch(decreaseAsync())}}>
         2초 후 감소
       </button>
+      
+      {/* saga를 이용하여 1초 뒤 증가하는 버튼 */}
+      <button onClick={()=>{dispatch(increaseSagaAsync())}}>1초 뒤 증가</button>
+      {/* saga를 이용하여 2초 뒤 증가하는 버튼 */}
+      <button onClick={()=>{dispatch(decreaseSagaAsync())}}>2초 뒤 감소</button>
 
       {/* changNum값을 바꿀  input*/}
       <p>{changeNum}</p>
